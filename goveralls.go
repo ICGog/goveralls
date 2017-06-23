@@ -102,7 +102,7 @@ func getPkgs(pkg string) ([]string, error) {
 	allPkgs := strings.Split(strings.Trim(string(out), "\n"), "\n")
 	pkgs := make([]string, 0, len(allPkgs))
 	for _, p := range allPkgs {
-		if !strings.Contains(p, "/vendor/") {
+		if !strings.Contains(p, "/vendor/") && !strings.Contains(p, "pkg/test/") {
 			pkgs = append(pkgs, p)
 		}
 	}
